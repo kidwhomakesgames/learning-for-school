@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Road Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #game {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ccc;
+            height: 600px;
+            position: relative;
+        }
+        #player {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            bottom: 10px;
+            left: calc(50% - 25px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Escape Road Game</h1>
+    <div id="game">
+        <div id="player"></div>
+    </div>
+    <script>
+        // JavaScript for game logic
+        document.addEventListener('keydown', function(event) {
+            var player = document.getElementById('player');
+            var playerPosition = player.offsetLeft;
+            if (event.key === 'ArrowLeft' && playerPosition > 0) {
+                player.style.left = (playerPosition - 10) + 'px';
+            }
+            if (event.key === 'ArrowRight' && playerPosition < (document.getElementById('game').offsetWidth - 50)) {
+                player.style.left = (playerPosition + 10) + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
